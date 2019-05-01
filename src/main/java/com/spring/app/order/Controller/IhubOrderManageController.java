@@ -18,7 +18,13 @@ public class IhubOrderManageController {
 	
 	@GetMapping("/order/{userId}")
 	public IhubOrderVO findorderByuserId(@PathVariable("userId") String userId) {
-		return ihubOrderManageService.findorderByuserId(userId);
+		IhubOrderVO orderVO = new IhubOrderVO();
+		try {
+			orderVO = ihubOrderManageService.findorderByuserId(userId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return orderVO;
 		
 	}
 }
